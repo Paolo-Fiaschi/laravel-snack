@@ -1,0 +1,34 @@
+//
+//
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.height{
+    height: 100%;
+
+}
+header,
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+}
+// MAIN
+main{
+    width: 100%;
+    height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: column;
+
+}
+// FOOTER---------
+footer{
+    height: 150px;
+    background-color: #353434;
+    color: white;
+
+}
+

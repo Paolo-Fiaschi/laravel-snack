@@ -5,22 +5,33 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $cards  = config('pasta');
-    $collection = collect($cards);
+    $collection = collect($cards)->map(function($item, $key){
+        $item['id'] = $key;
+        return $item;
+    });
     $lunga = $collection -> where('tipo', 'lunga');
     $corta = $collection -> where('tipo', 'corta');
     $cortissima = $collection -> where('tipo', 'cortissima');
 
-    // foreach ($cards as $card) {
 
-    //     if ($card['tipo'] === 'lunga') {
-    //         $lunga[] = $card;
-    //     }
-    //     if ($card['tipo'] === 'corta') {
-    //         $corta[] = $card;
-    //     }
-    //     if ($card['tipo'] === 'cortissima') {
-    //         $cortissima[] = $card;
-    //     }
-    // }
     return view('home', compact('lunga', 'corta', 'cortissima'));
-});
+}) ->name('home');
+Route::get('/showPasta', function () {
+    $cards  = config('pasta');
+    $collection = collect($cards)->map(function($item, $key){
+        $item['id'] = $key;
+        return $item;
+    });
+    $lunga = $collection -> where('tipo', 'lunga');
+    $corta = $collection -> where('tipo', 'corta');
+    $cortissima = $collection -> where('tipo', 'cortissima');
+
+
+    return view('tipiPasta', compact('lunga', 'corta', 'cortissima'));
+}) ->name('tipiPasta');
+
+Route::get('/showPasta/{id}', function ($id) {
+    $cards  = config('pasta');
+    $card = $cards[$id];
+    return view('showPasta', compact('card'));
+}) ->name('showPasta');

@@ -11,8 +11,6 @@
 header,
 footer {
   width: 100%;
-  display: flex;
-  justify-content: center;
   background-color: grey;
 }
 
@@ -21,6 +19,14 @@ main {
   height: calc(100vh - 150px);
   display: flex;
   flex-direction: column;
+}
+
+main .homeImg {
+  width: 300px;
+}
+
+main .homeImg img {
+  width: 100%;
 }
 
 footer {

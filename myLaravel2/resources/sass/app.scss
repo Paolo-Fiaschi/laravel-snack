@@ -12,8 +12,8 @@
 header,
 footer{
     width: 100%;
-    display: flex;
-    justify-content: center;
+    // display: flex;
+    // justify-content: center;
     background-color: grey;
 }
 // MAIN
@@ -21,8 +21,14 @@ main{
     width: 100%;
     height: calc(100vh - 150px);
     display: flex;
+    // justify-content: center;
     flex-direction: column;
-
+    .homeImg{
+        width: 300px;
+        img{
+            width: 100%;
+        }
+    }
 }
 // FOOTER---------
 footer{

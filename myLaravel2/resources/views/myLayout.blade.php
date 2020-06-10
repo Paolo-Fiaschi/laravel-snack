@@ -29,7 +29,11 @@
        </div>
 
         <footer>
-            @include('footer')
+            <div class="container">
+                <div class="row">
+                    @include('footer')
+                </div>
+            </div>
         </footer>
     </body>
 </html>

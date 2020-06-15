@@ -1,0 +1,36 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+// Header
+@import 'header';
+
+// Home
+@import 'home';
+// Pasta
+// @import 'pasta';
+
+// Footer
+footer{
+    background-color: #2270B6;
+    color: white;
+    .footerListContainer{
+        display: flex;
+        width: 70%;
+        justify-content: space-between;
+        align-items: center;
+        ul{
+        list-style-type: none;
+        }
+    }
+}

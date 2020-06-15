@@ -1,0 +1,13 @@
+.pastaLungaLista{
+    display: flex;
+    flex-wrap: wrap;
+    li{
+        display: flex;
+        flex-direction: column;
+        width: 228px;
+        height: 200px;
+        padding: 10px;
+
+    }
+
+}

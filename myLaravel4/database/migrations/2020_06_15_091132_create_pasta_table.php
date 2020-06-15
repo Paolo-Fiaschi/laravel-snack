@@ -15,12 +15,14 @@ class CreatePastaTable extends Migration
     {
         Schema::create('pasta', function (Blueprint $table) {
             $table->id();
+
             $table->string('src');
             $table->string('titolo');
             $table->string('tipo');
             $table->string('cottura');
             $table->string('peso');
             $table->text('descrizione');
+
             $table->timestamps();
         });
     }

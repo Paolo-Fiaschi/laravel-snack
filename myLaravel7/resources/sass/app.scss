@@ -1,0 +1,32 @@
+//
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header,
+footer,
+main{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    margin: auto;
+    min-height: 10vh;
+    padding: 30px;
+    .auto{
+        margin-bottom: 10px;
+    }
+}
+footer{
+    background-color: grey;
+}
+main{
+    background-color: white;
+    color: black;
+    min-height: 80vh;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}

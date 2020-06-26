@@ -2,10 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('post', 'PostsController@index') -> name('post');
+Route::get('/show/{id}', 'PostsController@show') -> name('show');
+Route::get('/show/delete/{id}', 'PostsController@delete') -> name('delete');
+Route::get('/edit/{id}', 'PostsController@edit') -> name('edit');
+Route::post('/update/{id}', 'PostsController@update') -> name('update');
+

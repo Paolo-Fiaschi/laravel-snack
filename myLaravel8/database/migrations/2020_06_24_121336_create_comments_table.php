@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
 
             $table ->string('author');
             $table ->string('description');
-            $table ->dateTime('time');
+            $table ->string('time');
             $table -> bigInteger('post_id')->unsigned()->index();
 
             $table->timestamps();

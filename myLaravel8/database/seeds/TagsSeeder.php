@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Tag;
+use App\Post;
 class TagsSeeder extends Seeder
 {
     /**
@@ -11,6 +12,11 @@ class TagsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Tag::class, 20)
+                                -> create()
+                                -> each(function ($tag){
+            $posts = Post::inRandomOrder() -> take(rand(1,5)) -> get();
+            $tag -> posts() -> attach($posts);
+        });
     }
 }

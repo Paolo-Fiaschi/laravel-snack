@@ -25,7 +25,7 @@ class AddForeignKeys extends Migration
                     -> on('posts')
                     -> onDelete('cascade');
 
-            $table -> foreign('post_id', 'post_tag_tag_fk')
+            $table -> foreign('tag_id', 'post_tag_tag_fk')
                     -> references('id')
                     -> on('tags')
                     -> onDelete('cascade');

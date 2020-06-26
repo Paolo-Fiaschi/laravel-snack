@@ -3,7 +3,7 @@
 @section('content')
     <main class="">
         <h1>POSTS</h1>
-        <button type="button"><a href="">Create New Post</a></button>
+        <button type="button"><a href="{{route('create')}}">Create New Post</a></button>
         <ul>
         @foreach ($posts as $post)
             <li>

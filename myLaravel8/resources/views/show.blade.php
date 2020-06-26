@@ -9,18 +9,34 @@
                 AUTHOR: <p>{{$post['author']}}</p>
                 DESCRIPTION: <p>{{$post['description']}}</p>
                 DATE: <p>{{$post['data']}}</p>
-                {{-- <small>EMPLOYEE: {{$task['employee']['firstname']}} {{$task['employee']['lastname']}}</small><br>
-                <small>LOCATION:
+                <small>COMMENTS:
                     <ul>
-                        @foreach ($task -> employee -> locations as $location)
-                    <li>{{$location -> city}}<br>{{$location -> street}}<br>{{$location -> state}}</li>
+                        @foreach ($comments as $comment)
+                            <li>{{$comment -> author}}<br>{{$comment -> description}}<br></li>
                         @endforeach
+                        {{-- @foreach ($post -> comments as $comment)
+                            <li>{{$comment -> author}}<br>{{$comment -> description}}<br></li>
+                        @endforeach --}}
                     </ul>
-                </small> --}}
+                </small>
+
+                <small>TAGS:
+                    <ul>
+                        @foreach ($post -> tags as $tag)
+                            <li>{{$tag -> name}}<br>{{$tag -> description}}<br></li>
+                        @endforeach
+                        {{-- @foreach ($tags as $tag)
+                            <li>{{$tag -> name}}<br>{{$tag -> description}}<br></li>
+                        @endforeach --}}
+                    </ul>
+                </small>
 
 
             </li>
+            @auth
             <button type="button"><a href="{{route('edit', $post['id'])}}">EDIT</a></button>
+
+            @endauth
             <button type="button"><a href="{{route('delete', $post['id'])}}">DELETE</a></button>
         </ul>
     </main>

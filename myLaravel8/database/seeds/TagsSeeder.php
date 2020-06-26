@@ -15,7 +15,7 @@ class TagsSeeder extends Seeder
         factory(Tag::class, 20)
                                 -> create()
                                 -> each(function ($tag){
-            $posts = Post::inRandomOrder() -> take(rand(1,5)) -> get();
+            $posts = Post::inRandomOrder() -> take(rand(1,3)) -> get();
             $tag -> posts() -> attach($posts);
         });
     }

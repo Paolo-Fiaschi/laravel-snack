@@ -3,35 +3,21 @@
 namespace App\Http\Controllers;
 use App\Post;
 use App\Tag;
-use App\Comment;
 use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class PostLoggedController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-        $posts = Post::all();
-        return view('post', compact('posts'));
+    $this->middleware('auth');
     }
-    public function show($id)
+    public function edit($id)
     {
         $post = Post::findOrFail($id);
         $tags = Tag::all();
-        $comments = Comment::all();
-        return view('show', compact('post', 'tags', 'comments'));
+        return view('edit', compact('post', 'tags'));
     }
-    public function delete($id)
-    {
-        $post = Post::findOrFail($id);
-        $post -> delete();
-        return redirect() -> route('post');
-    }
-    public function create()
-    {
-        $tags = Tag::all();
-        return view('create', compact('tags'));
-    }
-    public function store(Request $request)
+    public function update(Request $request, $id)
     {
         $validatedData = $request-> validate([
             'author' => 'required',
@@ -40,8 +26,7 @@ class PostsController extends Controller
             'data' => 'nullable',
             'tags' => 'required'
         ]);
-
-        $post = new Post;
+        $post = Post::findOrFail($id);
 
         $post['author'] = $validatedData['author'];
         $post['title'] = $validatedData['title'];
@@ -51,10 +36,9 @@ class PostsController extends Controller
         $post -> save();
 
         $post -> tags() -> sync($validatedData['tags']);
-        // dd($validatedData);
 
 
         return redirect() -> route('post');
-
     }
+
 }

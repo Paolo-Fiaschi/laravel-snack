@@ -12,7 +12,7 @@ class CommentsSeeder extends Seeder
      */
     public function run()
     {
-        factory(Comment::class, 100) -> make()
+        factory(Comment::class, 5) -> make()
                                     -> each(function($comment){
             $post = Post::inRandomOrder()-> first();
             $comment -> post() -> associate($post);

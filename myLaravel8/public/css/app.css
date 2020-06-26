@@ -10944,6 +10944,10 @@ main {
   align-items: center;
 }
 
+header {
+  flex-direction: column;
+}
+
 main {
   min-height: 80vh;
   background-color: white;
